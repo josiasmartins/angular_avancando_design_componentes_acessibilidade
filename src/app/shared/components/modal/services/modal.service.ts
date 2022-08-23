@@ -5,7 +5,7 @@ export class ModalService {
 
   // templateRef: Referencia do template
   // templateRef: refencia do conteudo que precisa estar dentro do modal
-  public open(config: ModalConfigInterface) {
+  public open(config: ModalConfigInterface): ModalRef {
     console.log('open called');
     return new ModalRef()
   }

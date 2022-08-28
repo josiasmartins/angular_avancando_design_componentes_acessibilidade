@@ -11,6 +11,7 @@ export class AppComponent {
   title = 'a11y-p2';
   public firstName = "Flávio";
   public modalRef: ModalRef;
+  public info = false;
 
   constructor(
     private modalService: ModalService,

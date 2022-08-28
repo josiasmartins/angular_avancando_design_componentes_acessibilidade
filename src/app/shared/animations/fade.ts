@@ -9,6 +9,12 @@ export const fade = trigger(
         style({ opacity: 0 }),
         animate(1000, style({ opacity: 1 }))
       ]
-    )
+    ),
+    transition(
+      ':leave',
+      [ 
+        animate(1000, style({ opacity: 0 }))
+      ]
+    ),
   ]
 );

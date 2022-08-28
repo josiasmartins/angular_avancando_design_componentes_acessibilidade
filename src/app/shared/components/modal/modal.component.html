@@ -1,0 +1,17 @@
+<div 
+  class="modal-overlay"
+  (click)="modalRef.close()"
+>
+  <!-- $event.stopPropagation: para o click -->
+  <div class="modal-content"
+    (click)="$event.stopPropagation()"
+  >
+    <h1 class="modal-title">{{ modalConfigI.title }}</h1>
+    <!-- conteúdo do modal, template que eu quero exibir -->
+    <ng-container *ngTemplateOutlet="modalConfigI.templateRef"></ng-container>
+  </div>
+</div>
+
+<div [@fade]="active" *ngIf="true">
+
+</div>

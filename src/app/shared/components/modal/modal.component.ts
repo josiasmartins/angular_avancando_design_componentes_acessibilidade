@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { AfterViewInit, Component, HostBinding, TemplateRef } from '@angular/core';
 import { ModalConfigInterface } from './interfaces/modal-config';
 
 @Component({
@@ -6,7 +6,12 @@ import { ModalConfigInterface } from './interfaces/modal-config';
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })
-export class ModalComponent {
- public modalConfigI: ModalConfigInterface;
+export class ModalComponent implements AfterViewInit {
 
+  @HostBinding('class.show') public show = false;
+  public modalConfigI: ModalConfigInterface;
+
+  public ngAfterViewInit(): void {
+    setTimeout(() => this.show = true);
+  }
 }

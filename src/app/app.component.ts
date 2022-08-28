@@ -13,7 +13,7 @@ export class AppComponent {
   public modalRef: ModalRef;
 
   constructor(
-    private modalService: ModalService
+    private modalService: ModalService,
   ) {}
 
   public show(): void {

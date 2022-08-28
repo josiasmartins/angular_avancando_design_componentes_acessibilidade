@@ -8,10 +8,10 @@ import { ModalConfigInterface } from './interfaces/modal-config';
 })
 export class ModalComponent implements AfterViewInit {
 
-  @HostBinding('class.show') public show = false;
+  // @HostBinding('class.show') public show = false;
   public modalConfigI: ModalConfigInterface;
 
   public ngAfterViewInit(): void {
-    setTimeout(() => this.show = true);
+    // setTimeout(() => this.show = true);
   }
 }

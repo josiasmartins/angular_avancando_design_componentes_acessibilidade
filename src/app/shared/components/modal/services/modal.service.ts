@@ -1,7 +1,7 @@
-import { ComponentFactory, ComponentFactoryResolver, ComponentRef, Injectable, Injector, TemplateRef } from '@angular/core';
+import { ComponentFactory, ComponentFactoryResolver, ComponentRef, Injectable, Injector } from '@angular/core';
 import { ModalConfigInterface } from '../interfaces/modal-config';
 import { ModalComponent } from '../modal.component';
-import { BodyInjectorService } from '../../services/body-injector';
+import { BodyInjectorService } from '../../../services/body-injector';
 
 @Injectable()
 export class ModalService {
@@ -9,7 +9,6 @@ export class ModalService {
   private componentFactory: ComponentFactory<ModalComponent>;
 
   constructor(
-    private injector: Injector,
     /**
      *  ComponenteFactoryResolver
      *
@@ -18,9 +17,10 @@ export class ModalService {
      *  Cada fábrica criada pode criar quantos componentes daquele tipo de fábrica.
      */
     componentFactoryResolver: ComponentFactoryResolver,
-    private bodyInjector: BodyInjectorService
+    private bodyInjector: BodyInjectorService,
+    private injector: Injector,
   ) {
-    componentFactoryResolver.resolveComponentFactory(ModalComponent)
+    this.componentFactory = componentFactoryResolver.resolveComponentFactory(ModalComponent)
   }
 
   // templateRef: Referencia do template
@@ -41,13 +41,13 @@ export class ModalService {
 
 /**
  *  ComponentRef e ModalRef
- * 
+ *
  *  @description
- * O ComponentRef é um artefato com Angular que encapsula 
- * uma instância do componente criado dinamicamente. Já ModalRef 
- * é uma criação nossa que encapsula um ComponentRef 
- * possuindo apenas o método close sem export a referência 
- * para o desenvolvedor cliente da nossa API. 
+ * O ComponentRef é um artefato com Angular que encapsula
+ * uma instância do componente criado dinamicamente. Já ModalRef
+ * é uma criação nossa que encapsula um ComponentRef
+ * possuindo apenas o método close sem export a referência
+ * para o desenvolvedor cliente da nossa API.
  */
 
 export class ModalRef {

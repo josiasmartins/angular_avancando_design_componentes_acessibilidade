@@ -1,6 +1,7 @@
 <div 
   class="modal-overlay"
   (click)="modalRef.close()"
+  (keydown.esc)="modalRef.close()"
 >
   <!-- $event.stopPropagation: para o click -->
   <div 

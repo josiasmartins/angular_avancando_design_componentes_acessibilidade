@@ -1,9 +1,13 @@
 <div 
   class="modal-overlay"
   (click)="modalRef.close()"
+  (keydown.esc)="modalRef.close()"
 >
   <!-- $event.stopPropagation: para o click -->
-  <div class="modal-content"
+  <div 
+    appFocusTrap
+    appFocusBack
+    class="modal-content"
     (click)="$event.stopPropagation()"
   >
     <h1 class="modal-title">{{ modalConfigI.title }}</h1>

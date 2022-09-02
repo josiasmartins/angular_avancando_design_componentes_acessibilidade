@@ -1,7 +1,7 @@
 # A11yP2
 
 ## demo
-![demo](./src/assets/angular-acessibilidade-2.gif);
+![demo](./src/assets/angular-acessibilidade-2.gif)
 
 ### tools usage and building
 - angular 10

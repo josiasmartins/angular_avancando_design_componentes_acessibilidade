@@ -4,10 +4,14 @@
   (keydown.esc)="modalRef.close()"
 >
   <!-- $event.stopPropagation: para o click -->
+  <!-- aria-modal: true: só ler o conteudo que está dentro da div, o resto ignore -->
   <div 
     appFocusTrap
     appFocusBack
     class="modal-content"
+    role="dialog"
+    aria-modal="true"
+    [attr.aria-label]="modalConfigI.title"
     (click)="$event.stopPropagation()"
   >
     <h1 class="modal-title">{{ modalConfigI.title }}</h1>

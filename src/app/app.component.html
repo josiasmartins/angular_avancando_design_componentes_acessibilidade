@@ -9,32 +9,40 @@
 
 <!-- ng-template: o angular não processa. Ele quarda -->
 <ng-template #modal>
-  <div class="form-field">
-    <label for="firstName">First name</label>
-    <input id="firstName" [(value)]="firstName">
-  </div>
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="form-field">
+      <label for="firstName">First name</label>
+      <input formControlName="firstName" id="firstName" [(value)]="firstName">
+    </div>
+    
+    <div class="form-field">
+      <label for="surname">Surname</label>
+      <input formControlName="surname" id="surname">
+    </div>
+  
+    <div class="form-field">
+      <label for="age">Age</label>
+      <input formControlName="age" id="age">
+    </div>
 
-  <div class="form-field">
-    <label for="surname">Surname</label>
-    <input id="surname">
-  </div>
+    <label for="info">Subscribe to news letter</label>
+    <input formControlName="info" id="info" type="checkbox" (change)="info = !info">
+    <p [@fade] *ngIf="info">This is a placeholder for more information</p>
+  
+    <div class="button-group">
+      <button 
+        class="button button-primary" 
+        type="submit"
+      >Submit</button>
+      <button
+        class="button button-secondary"
+        type="button"
+        (click)="modalRef.close()"
+      >Cancel</button>
+    </div>
 
-  <div class="form-field">
-    <label for="age">Age</label>
-    <input id="age">
-  </div>
+  </form>
 
-  <label for="info">Subscribe to news letter</label>
-  <input id="info" type="checkbox" (change)="info = !info">
-  <p *ngIf="info">This is a placeholder for more information</p>
 
-  <div class="button-group">
-    <button class="button button-primary" type="button">Submit</button>
-    <button
-      class="button button-secondary"
-      type="button"
-      (click)="modalRef.close()"
-    >Cancel</button>
-  </div>
 </ng-template>
 

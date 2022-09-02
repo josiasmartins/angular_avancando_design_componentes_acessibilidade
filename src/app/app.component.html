@@ -12,17 +12,51 @@
   <form [formGroup]="form" (ngSubmit)="submit()">
     <div class="form-field">
       <label for="firstName">First name</label>
-      <input formControlName="firstName" id="firstName" [(value)]="firstName">
+      <input 
+        aria-describedby="firstName-error"
+        [attr.aria-invalid]="form.get('firstName').invalid"
+        formControlName="firstName" 
+        id="firstName"
+      >
+      <span 
+        id="firstName-error"
+        class="validation-errors"
+        *ngIf="form.get('firstName')?.errors?.required"
+      >First name is required
+      </span>
     </div>
     
     <div class="form-field">
       <label for="surname">Surname</label>
-      <input formControlName="surname" id="surname">
+      <!-- aria-describedby: muda o texto falado pelo screen reader -->
+      <input 
+        aria-describedby="surname-error"
+        [attr.aria-invalid]="form.get('surname').invalid"
+        formControlName="surname" 
+        id="surname"
+      >
+      <span 
+        id="surname-error"
+        class="validation-errors"
+        *ngIf="form.get('surname')?.errors?.required"
+      >Surname is required
+      </span>
     </div>
   
     <div class="form-field">
       <label for="age">Age</label>
-      <input formControlName="age" id="age">
+      <input 
+        aria-describedby="age-error"
+        [attr.aria-invalid]="form.get('age').invalid"
+        formControlName="age" 
+        id="age"
+      >
+      <span 
+        id="age-error"
+        class="validation-errors"
+        *ngIf="form.get('age')?.errors?.required"
+      >Age is required
+      </span>
     </div>
 
     <label for="info">Subscribe to news letter</label>
@@ -31,6 +65,7 @@
   
     <div class="button-group">
       <button 
+        [attr.aria-disabled]="form.invalid"
         class="button button-primary" 
         type="submit"
       >Submit</button>
